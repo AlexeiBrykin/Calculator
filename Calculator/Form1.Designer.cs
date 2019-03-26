@@ -192,6 +192,7 @@
             this.buttonPlus.TabIndex = 13;
             this.buttonPlus.Text = "+";
             this.buttonPlus.UseVisualStyleBackColor = true;
+            this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
             // 
             // buttonMinus
             // 
@@ -201,6 +202,7 @@
             this.buttonMinus.TabIndex = 14;
             this.buttonMinus.Text = "-";
             this.buttonMinus.UseVisualStyleBackColor = true;
+            this.buttonMinus.Click += new System.EventHandler(this.buttonMinus_Click);
             // 
             // buttonMult
             // 
@@ -220,6 +222,7 @@
             this.buttonDev.TabIndex = 16;
             this.buttonDev.Text = "/";
             this.buttonDev.UseVisualStyleBackColor = true;
+            this.buttonDev.Click += new System.EventHandler(this.buttonDev_Click);
             // 
             // buttonEqual
             // 
@@ -229,6 +232,7 @@
             this.buttonEqual.TabIndex = 17;
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
+            this.buttonEqual.Click += new System.EventHandler(this.buttonEqual_Click);
             // 
             // buttonBackSpace
             // 

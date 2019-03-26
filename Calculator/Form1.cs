@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
+    public enum Operations
+    {
+        None,
+        Summ,
+        Minus,
+        Mult,
+        Devide
+    }
+
     public partial class Form1 : Form
     {
         double result = 0d;
         bool isDot = false;
         int disCharge = 0;
+        Operations currOper = Operations.None;
 
         public void NumberAdd(int num)
         {
@@ -133,15 +143,35 @@ namespace Calculator
             NumberRemove();
         }
 
-        private void buttonMult_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonDot_Click(object sender, EventArgs e)
         {
             isDot = true;
             showTablo();
+        }
+
+        private void buttonPlus_Click(object sender, EventArgs e)
+        {
+            currOper = Operations.Summ;
+        }
+
+        private void buttonMinus_Click(object sender, EventArgs e)
+        {
+            currOper = Operations.Minus;
+        }
+
+        private void buttonMult_Click(object sender, EventArgs e)
+        {
+            currOper = Operations.Mult;
+        }
+
+        private void buttonDev_Click(object sender, EventArgs e)
+        {
+            currOper = Operations.Devide;
+        }
+
+        private void buttonEqual_Click(object sender, EventArgs e)
+        {
+            Logic.Equals(result, first);
         }
     }
 }
