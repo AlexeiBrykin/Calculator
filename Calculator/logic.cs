@@ -8,29 +8,29 @@ namespace Calculator
 {
     class Logic
     { 
-        public double Sum(double x, double y)
+        public double Sum(double x, double y)                                   //сложение
         {
             return x + y;
         }
 
-        public double Minus(double x, double y)
+        public double Minus(double x, double y)                                 //вычитание
         {
             return x - y;
         }
 
-        public double Mult(double x, double y)
+        public double Mult(double x, double y)                                  //умножение
         {
             return x * y;
         }
 
-        public double Devide(double x, double y)
+        public double Devide(double x, double y)                                //деление
         {
             return x / y;
         }
 
-        public double Equal(Operations currOper, double x, double y)
+        public double Equal(Operations currOper, double x, double y)            //равно
         {
-           switch (currOper)
+           switch (currOper)                                                    //выбор операции
             {
                 case Operations.Summ:
                     return Sum(x, y);

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public enum Operations
+    public enum Operations                                                  //перечисление операций
     {
         None,
         Summ,
@@ -22,29 +22,30 @@ namespace Calculator
     public partial class Form1 : Form
     {
         double result = 0d;
-        bool isDot = false;
-        int disCharge = 0;
+        double first = 0d;
+        bool isDot = false;                                                 //целочисленная точка
+        int disCharge = 0;                                                  //разряд
         Operations currOper = Operations.None;
 
-        public void NumberAdd(int num)
+        public void NumberAdd(int num)                                      //добавление цифры в число
         {
             if (isDot)
             {
-                result += num / Math.Pow(10, ++disCharge);
+                result += num / Math.Pow(10, ++disCharge);                  //добавление дробной части
             }
             else
             {
-                result *= 10;
+                result *= 10;                                               //добавление целой части
                 result += num;
             }
             showTablo();
         }
 
-        public void NumberRemove()
+        public void NumberRemove()                                          //удаление цифры из числа
         {
-            if (isDot && disCharge == 0)
+            if (isDot && disCharge == 0)                                    
             {
-                isDot = false;
+                isDot = false;                                              //удаление точки
             }
             else if (isDot)
             {
@@ -52,7 +53,7 @@ namespace Calculator
                 double temp = result;
                 do
                 {
-                    temp -= (int)temp;
+                    temp -= (int)temp;                                      //удаление дробной части
                     temp *= 10;
                     currentCharge--;
                 }
@@ -62,7 +63,7 @@ namespace Calculator
             }
             else
             { 
-                result -= result % 10;
+                result -= result % 10;                                      //удаление целой части
                 result /= 10;
             }
             showTablo();
@@ -75,13 +76,14 @@ namespace Calculator
 
         private void showTablo()
         {
-            tablo.Text = result.ToString("F" + disCharge);
+            tablo.Text = result.ToString("F" + disCharge);                  //вывод результата
             if (isDot && disCharge == 0) tablo.Text += ',';
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            result = 0d;
+            result = 0d;                                                    //очистка при запуске
+            first = 0d;
             isDot = false;
             disCharge = 0;
             showTablo();
@@ -152,26 +154,33 @@ namespace Calculator
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             currOper = Operations.Summ;
+            first = result;
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             currOper = Operations.Minus;
+            first = result;
         }
 
         private void buttonMult_Click(object sender, EventArgs e)
         {
             currOper = Operations.Mult;
+            first = result;
         }
 
         private void buttonDev_Click(object sender, EventArgs e)
         {
             currOper = Operations.Devide;
+            first = result;
+            result = 0d;
         }
 
         private void buttonEqual_Click(object sender, EventArgs e)
         {
-            Logic.Equals(result, first);
+           // first = result;
+            result = Logic.Equal(currOper, result, first);
         }
     }
 }
+            

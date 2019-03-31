@@ -18,3 +18,13 @@ E:\siSharpProject\calc\Calculator\obj\Debug\Calculator.csproj.GenerateResource.c
 E:\siSharpProject\calc\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 E:\siSharpProject\calc\Calculator\obj\Debug\Calculator.exe
 E:\siSharpProject\calc\Calculator\obj\Debug\Calculator.pdb
+D:\Projects\Calc\Calculator\bin\Debug\Calculator.exe.config
+D:\Projects\Calc\Calculator\bin\Debug\Calculator.exe
+D:\Projects\Calc\Calculator\bin\Debug\Calculator.pdb
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.Form1.resources
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.exe
+D:\Projects\Calc\Calculator\obj\Debug\Calculator.pdb
