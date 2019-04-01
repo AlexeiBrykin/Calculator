@@ -8,38 +8,38 @@ namespace Calculator
 {
     class Logic
     { 
-        public double Sum(double x, double y)                                   //сложение
+        public static double Sum(double x, double y)                                   //сложение
         {
             return x + y;
         }
 
-        public double Minus(double x, double y)                                 //вычитание
+        public static double Minus(double x, double y)                                 //вычитание
         {
             return x - y;
         }
 
-        public double Mult(double x, double y)                                  //умножение
+        public static double Mult(double x, double y)                                  //умножение
         {
             return x * y;
         }
 
-        public double Devide(double x, double y)                                //деление
+        public static double Devide(double x, double y)                                //деление
         {
             return x / y;
         }
 
-        public double Equal(Operations currOper, double x, double y)            //равно
+        public static double Equal(Operations currOper, double x, double y)            //равно
         {
-           switch (currOper)                                                    //выбор операции
+           switch (currOper)                                                           //выбор операции
             {
                 case Operations.Summ:
                     return Sum(x, y);
                 case Operations.Minus:
-                    return Minus(x, y);
+                    return Minus(y, x);
                 case Operations.Mult:
                     return Mult(x, y);
                 case Operations.Devide:
-                    return Devide(x, y);
+                    return Devide(y, x);
             }
             return 0d;
         }

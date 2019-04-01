@@ -27,6 +27,15 @@ namespace Calculator
         int disCharge = 0;                                                  //разряд
         Operations currOper = Operations.None;
 
+        private void SecondNum()
+        {
+            first = result;
+            result = 0d;
+            isDot = false;
+            disCharge = 0;
+            showTablo();
+        }
+
         public void NumberAdd(int num)                                      //добавление цифры в число
         {
             if (isDot)
@@ -80,13 +89,18 @@ namespace Calculator
             if (isDot && disCharge == 0) tablo.Text += ',';
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Clean()                                                //очистка
         {
-            result = 0d;                                                    //очистка при запуске
+            result = 0d;                                                    
             first = 0d;
             isDot = false;
             disCharge = 0;
             showTablo();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Clean();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,7 +116,6 @@ namespace Calculator
         private void button3_Click(object sender, EventArgs e)
         {
             NumberAdd(3);
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -154,32 +167,36 @@ namespace Calculator
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             currOper = Operations.Summ;
-            first = result;
+            SecondNum();
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             currOper = Operations.Minus;
-            first = result;
+            SecondNum();
         }
 
         private void buttonMult_Click(object sender, EventArgs e)
         {
             currOper = Operations.Mult;
-            first = result;
+            SecondNum();
         }
 
         private void buttonDev_Click(object sender, EventArgs e)
         {
             currOper = Operations.Devide;
-            first = result;
-            result = 0d;
+            SecondNum();
         }
 
         private void buttonEqual_Click(object sender, EventArgs e)
         {
-           // first = result;
             result = Logic.Equal(currOper, result, first);
+            showTablo();
+        }
+
+        private void allClear_Click(object sender, EventArgs e)
+        {
+            Clean();
         }
     }
 }

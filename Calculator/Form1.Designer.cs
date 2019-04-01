@@ -47,6 +47,7 @@
             this.buttonDev = new System.Windows.Forms.Button();
             this.buttonEqual = new System.Windows.Forms.Button();
             this.buttonBackSpace = new System.Windows.Forms.Button();
+            this.allClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -244,11 +245,22 @@
             this.buttonBackSpace.UseVisualStyleBackColor = true;
             this.buttonBackSpace.Click += new System.EventHandler(this.buttonBackSpace_Click);
             // 
+            // allClear
+            // 
+            this.allClear.Location = new System.Drawing.Point(12, 227);
+            this.allClear.Name = "allClear";
+            this.allClear.Size = new System.Drawing.Size(75, 23);
+            this.allClear.TabIndex = 19;
+            this.allClear.Text = "AC";
+            this.allClear.UseVisualStyleBackColor = true;
+            this.allClear.Click += new System.EventHandler(this.allClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 257);
+            this.Controls.Add(this.allClear);
             this.Controls.Add(this.buttonBackSpace);
             this.Controls.Add(this.buttonEqual);
             this.Controls.Add(this.buttonDev);
@@ -297,6 +309,7 @@
         private System.Windows.Forms.Button buttonDev;
         private System.Windows.Forms.Button buttonEqual;
         private System.Windows.Forms.Button buttonBackSpace;
+        private System.Windows.Forms.Button allClear;
     }
 }
 
