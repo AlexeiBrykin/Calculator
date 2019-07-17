@@ -107,6 +107,7 @@
             // 
             // button4
             // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button4.Location = new System.Drawing.Point(12, 111);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
@@ -117,6 +118,7 @@
             // 
             // button5
             // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button5.Location = new System.Drawing.Point(98, 111);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
@@ -127,6 +129,7 @@
             // 
             // button6
             // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.button6.Location = new System.Drawing.Point(184, 111);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
@@ -280,6 +283,8 @@
             this.Controls.Add(this.tablo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.MaximumSize = new System.Drawing.Size(283, 296);
+            this.MinimumSize = new System.Drawing.Size(283, 296);
             this.Name = "Form1";
             this.Text = "Залупатор 2000";
             this.Load += new System.EventHandler(this.Form1_Load);

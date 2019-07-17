@@ -35,13 +35,13 @@ namespace Calculator
                 case Operations.Summ:
                     return Sum(x, y);
                 case Operations.Minus:
-                    return Minus(y, x);
+                    return Minus(x, y);
                 case Operations.Mult:
                     return Mult(x, y);
                 case Operations.Devide:
-                    return Devide(y, x);
+                    return Devide(x, y);
             }
-            return 0d;
+            return y;
         }
     }
 }

@@ -24,20 +24,28 @@ namespace Calculator
         double result = 0d;
         double first = 0d;
         bool isDot = false;                                                 //целочисленная точка
-        int disCharge = 0;                                                  //разряд
+        int disCharge = -1;                                                 //разряд
         Operations currOper = Operations.None;
+        bool equalUsed = false;
+        double secOp = 0d;
 
         private void SecondNum()
         {
             first = result;
             result = 0d;
             isDot = false;
-            disCharge = 0;
+            disCharge = -1;
             showTablo();
         }
 
         public void NumberAdd(int num)                                      //добавление цифры в число
         {
+            if (equalUsed)
+            {
+                result = 0d;
+            }
+            equalUsed = false;
+
             if (isDot)
             {
                 result += num / Math.Pow(10, ++disCharge);                  //добавление дробной части
@@ -52,7 +60,7 @@ namespace Calculator
 
         public void NumberRemove()                                          //удаление цифры из числа
         {
-            if (isDot && disCharge == 0)                                    
+            if (isDot && disCharge == -1)                                    
             {
                 isDot = false;                                              //удаление точки
             }
@@ -85,17 +93,22 @@ namespace Calculator
 
         private void showTablo()
         {
-            tablo.Text = result.ToString("F" + disCharge);                  //вывод результата
+            tablo.Text = result.ToString(disCharge < 0 ? string.Empty : "F" + disCharge);                  //вывод результата
             if (isDot && disCharge == 0) tablo.Text += ',';
         }
+
 
         private void Clean()                                                //очистка
         {
             result = 0d;                                                    
             first = 0d;
             isDot = false;
-            disCharge = 0;
+            disCharge = -1;
+            equalUsed = false;
+            secOp = 0d;
+            currOper = Operations.None;
             showTablo();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -156,42 +169,58 @@ namespace Calculator
         private void buttonBackSpace_Click(object sender, EventArgs e)
         {
             NumberRemove();
+            equalUsed = false;
         }
 
         private void buttonDot_Click(object sender, EventArgs e)
         {
             isDot = true;
+            disCharge = 0;
             showTablo();
+            equalUsed = false;
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
         {
             currOper = Operations.Summ;
             SecondNum();
+            equalUsed = false;
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             currOper = Operations.Minus;
             SecondNum();
+            equalUsed = false;
         }
 
         private void buttonMult_Click(object sender, EventArgs e)
         {
             currOper = Operations.Mult;
             SecondNum();
+            equalUsed = false;
         }
 
         private void buttonDev_Click(object sender, EventArgs e)
         {
             currOper = Operations.Devide;
             SecondNum();
+            equalUsed = false;
         }
 
         private void buttonEqual_Click(object sender, EventArgs e)
         {
-            result = Logic.Equal(currOper, result, first);
-            showTablo();
+            if (equalUsed == false) {
+                secOp = result;
+                result = Logic.Equal(currOper, first, result);
+                showTablo();
+            }
+            else
+            {
+                result = Logic.Equal(currOper, result, secOp);
+                showTablo();
+            }
+            equalUsed = true;
         }
 
         private void allClear_Click(object sender, EventArgs e)
